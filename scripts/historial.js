@@ -176,6 +176,28 @@ function filtrarPorFecha() {
     }
   });
 }
+document.getElementById("exportarExcel").addEventListener("click", async () => {
+  try {
+    const response = await fetch("https://excel-asistencia-urhc.vercel.app/api/generar-excel");
+
+    if (!response.ok) {
+      throw new Error("Error al generar el Excel.");
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Asistencia_URHC_Completa.xlsx";
+    a.click();
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    alert("Ocurrió un error al descargar el Excel.");
+    console.error(error);
+  }
+});
+
 
 window.addEventListener("DOMContentLoaded", () => {
   const hoy = new Date();
