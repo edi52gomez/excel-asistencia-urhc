@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistencia</title>
+    <link rel="shortcut icon" href="../assets/escudo transparente .png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="asistencia-page">
+    <header class="header">
+        <img src="../assets/escudo transparente .png" alt="Logo URHC">
+        <h1>Universitario Rugby Hockey Club</h1>
+
+        <div class="panel-desplegable">
+            <button class="panel-boton">Panel ▾</button>
+            <ul class="panel-contenido">
+                <li><a href="./Asistencia.html">Asistencia</a></li>
+                <li><a href="./pages/Destacado.html">Destacado</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/historial.html">Historial</a></li>
+                <li><a href="#" id="cerrarSesionMenu">Cerrar sesión</a></li>
+
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <h2>Registro de Asistencia</h2>
+
+        <form id="asistenciaForm" class="asistencia-form">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <label for="fechaAsistencia">Fecha de asistencia:</label>
+                <input type="date" id="fechaAsistencia" required>
+            </div>
+            <div class="asistencia-scrollbox">
+                <div id="contenedorAsistencia" class="cards-contenedor">
+                <!-- Tarjetas -->
+                </div>
+            </div>
+
+             <!-- ✅ Este botón ahora está correctamente dentro del formulario -->
+            <button type="submit">Guardar asistencia</button>
+        </form>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Universitario Rugby Hockey Club</p>
+        <a href="https://www.instagram.com/universitariohsj/" target="_blank">
+            <img src="../assets/instagram-logo-png-transparent.png" alt="Instagram">
+        </a>
+    </footer>
+    
+    <div id="toast-error" class="toast toast-error"></div>
+    <div id="toast-success" class="toast toast-success"></div>
+
+
+        <!-- Firebase SDKs desde CDN -->
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpU-CB6AzN_aOpsfMxR5WACY4U10zCgzE",
+        authDomain: "urhc-c8f40.firebaseapp.com",
+        projectId: "urhc-c8f40",
+        storageBucket: "urhc-c8f40.appspot.com",
+        messagingSenderId: "1029119950128",
+        appId: "1:1029119950128:web:2e24d514b85c0eb1b01cf5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.db = db; // para que tu otro script pueda accederlo
+    </script>
+    <script type="module" src="../scripts/asistencia.js"></script>
+
+
+</body>
+</html>

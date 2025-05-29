@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destacada</title>
+  <link rel="shortcut icon" href="../assets/escudo transparente .png" type="image/x-icon" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <img src="../assets/escudo transparente .png" alt="Logo URHC" />
+    <h1>Universitario Rugby Hockey Club</h1>
+
+    <div class="panel-desplegable">
+      <button class="panel-boton">Panel ▾</button>
+      <ul class="panel-contenido">
+        <li><a href="./Asistencia.html">Asistencia</a></li>
+        <li><a href="./Destacado.html">Destacado</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./historial.html">Historial</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="caja-formulario">
+      <form id="formVoto">
+        <label for="partidoSeleccionado">Seleccioná un partido:</label>
+        <select id="partidoSeleccionado" required>
+          <option value="">-- Elegí un partido --</option>
+          <option value="Universitario vs UNSJ">Universitario vs UNSJ</option>
+          <option value="Universitario vs Lomas Rojo">Universitario vs Lomas Rojo</option>
+          <option value="Universitario vs UVT">Universitario vs UVT</option>
+          <option value="Universitario vs SJRC Azul">Universitario vs SJRC Azul</option>
+        </select>
+
+        <label for="jugadoraSeleccionada">Seleccioná la jugadora destacada:</label>
+        <select id="jugadoraSeleccionada" required>
+          <option value="">-- Primero elegí un partido --</option>
+        </select>
+
+        <button type="submit">Registrar destacada</button>
+      </form>
+    </section>
+
+    <section class="caja-estadisticas">
+      <h3>📊 Estadísticas de votos</h3>
+      <label for="partidoEstadistica">Seleccioná un partido:</label>
+      <select id="partidoEstadistica">
+        <option value="">-- Elegí un partido --</option>
+        <option value="Universitario vs UNSJ">Universitario vs UNSJ</option>
+        <option value="Universitario vs Lomas Rojo">Universitario vs Lomas Rojo</option>
+        <option value="Universitario vs UVT">Universitario vs UVT</option>
+        <option value="Universitario vs SJRC Azul">Universitario vs SJRC Azul</option>
+      </select>
+
+      <div id="resultadosVotos" style="margin-top: 20px;"></div>
+    </section>
+
+    <div id="toast" class="toast hidden"></div>
+  </main>
+
+  <script type="module" src="../scripts/destacado.js"></script>
+</body>
+</html>
+

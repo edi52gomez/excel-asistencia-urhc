@@ -1,0 +1,12 @@
+{
+  "name": "excel-asistencia-urhc",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "api/generar-excel.js",
+  "scripts": {
+    "start": "node api/generar-excel.js"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

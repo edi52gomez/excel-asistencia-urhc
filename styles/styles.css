@@ -1,0 +1,1225 @@
+/* === BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #002b45;
+  line-height: 1.6;
+}
+
+/* === HEADER === */
+.header {
+  position: relative;
+  background-color: #003366;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header img {
+  height: 60px;
+  z-index: 2;
+}
+
+.header h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  margin: 0;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* === PANEL DESPLEGABLE === */
+.panel-desplegable {
+  position: relative;
+}
+
+.panel-boton {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.panel-contenido {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  list-style: none;
+  margin-top: 1px;
+  min-width: 180px;
+  z-index: 10;
+}
+
+.panel-contenido li a {
+  display: block;
+  padding: 10px 15px;
+  color: #002b45;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+.panel-contenido li a:hover {
+  background-color: #f0f0f0;
+}
+
+.panel-desplegable:hover .panel-contenido {
+  display: block;
+}
+
+/* === PLANTEL CON FONDO OSCURO === */
+.seccion-plantel {
+  background-image: url('../assets/equipo\ festejando.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh; /* ✅ altura mínima, no fija */
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  padding: 120px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido-texto {
+  text-align: center;
+  color: #f0f0f0;
+  max-width: 800px;
+}
+
+.contenido-texto h2 {
+  color: white;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contenido-texto p {
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+
+/* === FOOTER === */
+footer {
+  background-color: #003366;
+  color: white;
+  display: flex;
+  justify-content: space-between; /* 🔁 texto a la izq, icono a la der */
+  align-items: center;
+  padding: 15px 30px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+footer img {
+  width: 30px;
+  height: auto;
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* === ASISTENCIA === */
+main h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #002b45;
+}
+
+/* === TABLA DE ASISTENCIA MODERNA === */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.asistencia-container {
+  width: 100%;
+  max-width: 700px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+}
+
+thead {
+  background-color: #0056b3;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f5f7fa;
+}
+
+tbody tr:hover {
+  background-color: #e8f1fb;
+}
+
+/* Para evitar que se estire la celda */
+td:nth-child(1) {
+  width: 60%;
+}
+
+/* Radio pill actualizado */
+.radio-group {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.radio-pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 2px solid #ccc;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.radio-pill:hover {
+  background-color: #e0e0e0;
+}
+
+.radio-pill input[type="radio"] {
+  display: none;
+}
+
+.radio-pill.selected {
+  background-color: #0077b6;
+  color: white;
+  border-color: #0077b6;
+}
+
+/* Radio buttons */
+td label {
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+/* Botón guardar */
+form button[type="submit"] {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #003f80;
+}
+.cards-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.card-jugadora {
+  background-color: #f1f8ff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 10px rgba(0, 85, 150, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-jugadora span {
+  font-weight: 500;
+  font-size: 16px;
+  color: #002b45;
+}
+
+.select-asistencia {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #002b45;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.select-asistencia:hover {
+  border-color: #0077b6;
+}
+/* Contenedor con scroll vertical */
+.asistencia-scrollbox {
+  height: 60vh; /* ocupa el 60% de la pantalla */
+  overflow-y: auto;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #fdfdfd;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
+}
+
+/* Scroll suave y personalizado */
+.asistencia-scrollbox::-webkit-scrollbar {
+  width: 8px;
+}
+
+.asistencia-scrollbox::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.asistencia-scrollbox::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.asistencia-scrollbox::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Tarjetas dentro del scroll */
+.cards-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* === VISUAL EXCLUSIVA PARA LA PÁGINA DE ASISTENCIA === */
+body.asistencia-page {
+  background: url("./assets/equipo\ festejando.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #002b45;
+}
+
+body.asistencia-page main {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  margin: 30px auto;
+  max-width: 900px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero visual superior */
+.asistencia-hero {
+  position: relative;
+  height: 180px;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #0077b6, #00b4d8);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo-hero {
+  height: 100px;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.95;
+}
+
+.overlay-titulo h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Tarjetas con icono + hover */
+body.asistencia-page .card-jugadora {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 85, 150, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+
+body.asistencia-page .card-jugadora:hover {
+  transform: scale(1.02);
+}
+
+body.asistencia-page .card-jugadora span::before {
+  content: "🏑 ";
+  margin-right: 8px;
+}
+
+/* Botón estilizado */
+body.asistencia-page form button[type="submit"] {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.3s;
+  margin-top: 20px;
+}
+
+body.asistencia-page form button[type="submit"]:hover {
+  background: linear-gradient(135deg, #005b99, #0096c7);
+  transform: translateY(-2px);
+}
+/* === RESPONSIVE PARA CELULARES === */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header img {
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    position: static;
+    transform: none;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .panel-boton {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .panel-contenido {
+    position: static;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .seccion-plantel {
+    flex-direction: column;
+    padding: 40px 15px;
+  }
+
+  .contenido-texto h2 {
+    font-size: 24px;
+  }
+
+  .contenido-texto p {
+    font-size: 16px;
+  }
+
+  main {
+    padding: 20px 10px;
+  }
+
+  .asistencia-scrollbox {
+    height: 50vh;
+    padding: 8px;
+  }
+
+  .card-jugadora {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 13px;
+  }
+
+  footer img {
+    width: 24px;
+  }
+}
+/* para el cartel del guardado correctamente en asistencia  */
+
+
+.toast-success {
+  background-color: #0076b69d;
+}
+.historial-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 320px;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  color: #002b45;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.avatar img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.avatar .name {
+  margin: 0;
+  font-size: 20px;
+}
+
+.avatar .position {
+  font-size: 14px;
+  color: #555;
+}
+
+.section-title {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #0077b6;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 6px;
+  text-align: center;
+}
+.attendance-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #dde6f1;
+  border-radius: 14px;
+  padding: 14px 20px;
+  box-shadow: 0 4px 12px rgba(0, 85, 150, 0.05);
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.attendance-item:hover {
+  box-shadow: 0 6px 18px rgba(0, 85, 150, 0.12);
+}
+
+.attendance-item .date {
+  font-weight: 600;
+  font-size: 15px;
+  color: #002b45;
+}
+
+.attendance-item .status {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+.attendance-item.present .status {
+  background-color: #e6f9ec;
+  color: #2a9d00;
+}
+
+.attendance-item.absent .status {
+  background-color: #ffe9e9;
+  color: #c10000;
+}
+
+.attendance-item.tarde .status {
+  background-color: #fff8e1;
+  color: #b88600;
+}
+
+.attendance-item .icon {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+
+
+/* === HISTORIAL DE ASISTENCIA - NUEVO === */
+.historial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.historial-box {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.filters {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.filters label {
+  margin-right: 10px;
+  font-weight: 500;
+  color: #002b45;
+}
+
+.filters input,
+.filters select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Modal individual estilo app */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 80px auto;
+  padding: 20px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.modal-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit:cover;
+  margin-bottom: 10px;
+}
+
+.modal-position {
+  font-size: 14px;
+  color: #555;
+}
+
+.modal-body .attendance-item {
+  margin-top: 10px;
+}
+
+.modal-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Historial por dia contenedor */
+#contenedor-scroll {
+  max-height: 300px;  /* ajustá según tu diseño */
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+/* CSS COMPLETO CON CORRECCIÓN PARA .status-pill */
+
+.status-pill {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #eee;
+  color: #333;
+  display: inline-block;
+}
+
+.attendance-item.presente .status-pill {
+  background-color: #e6f9ec;
+  color: #2a9d00;
+}
+
+.attendance-item.ausente .status-pill {
+  background-color: #ffe9e9;
+  color: #c10000;
+}
+
+.attendance-item.tarde .status-pill {
+  background-color: #fff8e1;
+  color: #b88600;
+}
+
+
+/* Se reemplaza uso anterior de .status por .status-pill visualmente más atractivo */
+
+/* Animación de entrada opcional */
+.attendance-item {
+  animation: slideInUp 0.3s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Puedes mantener el resto del CSS como ya lo tenés */
+
+/* CARTEL DE LOADING.. al registrarse  */
+.pantalla-carga {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* negro con transparencia */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  display: none; /* Oculto por defecto */
+}
+
+.loader-container {
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.spinner {
+  border: 6px solid #ffffff33; /* gris claro semitransparente */
+  border-top: 6px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-container p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* === FORMULARIO DE LOGIN MODERNO === */
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 320px;
+  margin: 40px auto;
+}
+
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #fdfdfd;
+  color: #002b45;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#loginForm input:focus {
+  border-color: #0077b6;
+  box-shadow: 0 0 5px rgba(0, 119, 182, 0.3);
+  outline: none;
+}
+
+#loginForm button[type="submit"] {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+}
+
+#loginForm button[type="submit"]:hover {
+  background: linear-gradient(135deg, #005b99, #0096c7);
+  transform: translateY(-2px);
+}
+/* === FONDO DE LOGIN CON IMAGEN === */
+body {
+  background: url('../assets/campeonas-conmedalla.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65); /* overlay negro */
+  z-index: -1;
+}
+
+/* === CONTENEDOR DE LOGIN === */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.login-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+}
+
+/* === FORMULARIO MODERNO === */
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+#loginForm input {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #f4f7fa;
+}
+
+#loginForm input:focus {
+  border-color: #0077b6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 119, 182, 0.3);
+}
+
+#loginForm button {
+  margin-top: 10px;
+  padding: 12px;
+  background: linear-gradient(to right, #0077b6, #00b4d8);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#loginForm button:hover {
+  background: linear-gradient(to right, #005b99, #0096c7);
+}
+
+/* para que la pag de historial se vea en el cel tipo app */
+@media (max-width: 768px) {
+  .historial-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .historial-box {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .attendance-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .header {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .attendance-item {
+    padding: 10px;
+  }
+
+  .historial-card,
+  .modal-content {
+    margin: 10px;
+    padding: 16px;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+/* === ESTILO RESPONSIVE LOGIN === */
+@media (max-width: 600px) {
+  .login-wrapper {
+    padding: 20px;
+    height: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 60px;
+    padding: 30px 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  #loginForm {
+    width: 100%;
+    gap: 16px;
+  }
+
+  #loginForm input,
+  #loginForm button {
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  body {
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll;
+  }
+
+  body::before {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+}
+/* css de DESTACADO */
+/* === Estilo contenedor principal === */
+.destacado-container {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* === Formulario === */
+#formVoto label {
+  display: block;
+  font-weight: 600;
+  margin-top: 15px;
+  color: #002b45;
+}
+
+#formVoto select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+#formVoto button {
+  margin-top: 25px;
+  padding: 10px 20px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#formVoto button:hover {
+  background-color: #00509e;
+}
+
+/* === Estadísticas === */
+#estadisticasContainer {
+  margin-top: 40px;
+  background-color: rgba(240, 240, 240, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#estadisticasContainer h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #002b45;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 5px;
+}
+
+#estadisticasContainer h4 {
+  margin-top: 20px;
+  color: #003366;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#estadisticasContainer ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+#estadisticasContainer li {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #333;
+}
+#estadisticasContainer {
+  margin-top: 40px;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#estadisticasContainer h3 {
+  font-size: 24px;
+  color: #003366;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#estadisticasContainer h4 {
+  font-size: 20px;
+  color: #00509e;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#estadisticasContainer h4::before {
+  content: "📊";
+  font-size: 22px;
+}
+
+#estadisticasContainer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#estadisticasContainer li {
+  background-color: #e0f0ff;
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-left: 6px solid #0077b6;
+  border-radius: 8px;
+  color: #003350;
+  font-weight: 500;
+  position: relative;
+}
+
+#estadisticasContainer li::before {
+  content: "🏅";
+  position: absolute;
+  left: -30px;
+  top: 10px;
+  font-size: 18px;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Contenedor del formulario */
+.caja-formulario {
+  background-color: rgba(255, 255, 255, 0.521);
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  margin: 50px auto 40px auto;
+}
+
+/* Contenedor de estadísticas */
+.caja-estadisticas {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  margin: 40px auto 80px auto;
+}
+/* === TOAST CORREGIDO === */
+/* Toast base */
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #003366;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, bottom 0.4s ease;
+}
+
+/* Éxito */
+.toast-success {
+  background-color: #28a745;
+  bottom: 100px; /* MÁS ARRIBA */
+}
+
+/* Error */
+.toast-error {
+  background-color: #dc3545;
+  bottom: 40px; /* MÁS ABAJO */
+}
+
+/* Estado visible */
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Estado oculto */
+.toast.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+

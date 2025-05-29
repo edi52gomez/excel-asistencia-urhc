@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Login - URHC</title>
+  <link rel="shortcut icon" href="../assets/escudo transparente .png" type="image/x-icon">
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <main class="login-wrapper">
+    <div class="login-box">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm">
+          <input type="email" id="email" placeholder="Correo" required>
+          <input type="password" id="password" placeholder="Contraseña" required>
+          <button type="submit">Ingresar</button>
+        </form>
+        <div id="mensaje"></div>
+    </div>
+  </main>
+
+
+  <div id="pantallaCarga" class="pantalla-carga">
+  <div class="loader-container">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+  </div>
+
+  <script type="module" src="../scripts/login.js"></script>
+</body>
+</html>

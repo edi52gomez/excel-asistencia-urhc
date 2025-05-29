@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial de Asistencia</title>
+  <link rel="shortcut icon" href="../assets/escudo transparente .png" type="image/x-icon">
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <header class="header">
+    <img src="../assets/escudo transparente .png" alt="Logo URHC">
+    <h1>Universitario Rugby Hockey Club</h1>
+
+            <div class="panel-desplegable">
+            <button class="panel-boton">Panel ▾</button>
+            <ul class="panel-contenido">
+                <li><a href="./Asistencia.html">Asistencia</a></li>
+                <li><a href="./pages/Destacado.html">Destacado</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/historial.html">Historial</a></li>
+            </ul>
+        </div>
+    </header>
+
+  <main class="historial-grid">
+    <!-- Registro por Día -->
+    <section class="historial-box">
+      <div class="avatar">
+        <img src="../assets/escudo transparente .png" alt="Logo URHC">
+      </div>
+      <h2 class="section-title">📅 Registro por Día</h2>
+      <div class="filters">
+        <label for="filtroFecha">Filtrar por fecha:</label>
+        <input type="date" id="filtroFecha">
+      </div>
+      <button id="exportarExcel" title="Exportar a Excel" style="background: none; border: none; cursor: pointer;">
+        <img src="../assets/excel-logo-transparent" alt="Exportar" style="width: 50px; height: 50px; filter:none;">
+      </button>
+
+      <div id="contenedor-scroll">
+        <div id="historialPorDia"></div>
+      </div>
+
+    </section>
+
+    <!-- Registro por Jugadora -->
+    <section class="historial-box">
+      <div class="avatar">
+        <img src="../assets/escudo transparente .png" alt="Logo URHC">
+      </div>
+      <h2 class="section-title">👤 Registro por Jugadora</h2>
+      <div class="filters">
+        <label for="filtroJugadora">Filtrar por jugadora:</label>
+        <select id="filtroJugadora">
+          <option value="">Seleccionar</option>
+        </select>
+      </div>
+      <div id="historialPorJugadora" class="attendance-list"></div>
+    </section>
+
+    <!-- Modal Jugadora -->
+    <div id="modalJugadora" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" id="btnCerrarModal">&times;</span>
+        <div class="modal-header">
+          <img src="../assets/foto ghibli lachi generico.png" alt="Avatar" class="modal-avatar">
+          <h3 id="modalNombre"></h3>
+          <p class="modal-position">Jugador/a</p>
+          <div class="modal-body">
+            <div id="modalHistorial" class="modal-scroll">
+            <!-- Historial individual -->
+          </div>
+        </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Universitario Rugby Hockey Club</p>
+    <a href="https://www.instagram.com/universitariohsj/" target="_blank">
+      <img src="../assets/instagram-logo-png-transparent.png" alt="Instagram">
+    </a>
+  </footer>
+  <script>
+    // Oculta el ítem de cerrar sesión si no estás en asistencia.html
+    if (!window.location.pathname.includes("Asistencia.html")) {
+      const cerrarSesion = document.getElementById("cerrarSesionItem");
+    if (cerrarSesion) cerrarSesion.style.display = "none";
+    }
+  </script>  
+  <script type="module" src="../scripts/historial.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+</html>
+
+
+

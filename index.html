@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URHC</title>
+    <link rel="shortcut icon" href="./assets/escudo transparente .png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <header class="header">
+        <img src="./assets/escudo transparente .png" alt="Logo URHC">
+        <h1>Universitario Rugby Hockey Club</h1>
+
+        <div class="panel-desplegable">
+            <button class="panel-boton">Panel ▾</button>
+            <ul class="panel-contenido">
+                <li><a href="./pages/Asistencia.html">Asistencia</a></li>
+                <li><a href="./pages/Destacado.html">Destacado</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./pages/historial.html">Historial</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="seccion-plantel">
+        <div class="overlay">
+            <div class="contenido-texto">
+            <h2>Plantel Superior</h2>
+                <p>El plantel superior de Universitario Rugby Hockey Club se conformó hace apenas dos años, 
+                    marcando un hito en la historia deportiva del club. Su participación comenzó en la categoría B 
+                    del torneo local y en la liga F del sistema de competencias regionales. Desde sus inicios, el equipo 
+                    mostró un crecimiento sostenido tanto en lo deportivo como en lo organizativo.
+                </p>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <p>© 2025 Universitario Rugby Hockey Club</p>
+        <a href="https://instagram.com/universitariohsj" target="_blank">
+            <img src="./assets/instagram-logo-png-transparent.png" alt="Instagram">
+        </a>
+    </footer>
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpU-CB6AzN_aOpsfMxR5WACY4U10zCgzE",
+        authDomain: "urhc-c8f40.firebaseapp.com",
+        projectId: "urhc-c8f40",
+        storageBucket: "urhc-c8f40.firebasestorage.app",
+        messagingSenderId: "1029119950128",
+        appId: "1:1029119950128:web:2e24d514b85c0eb1b01cf5",
+        measurementId: "G-GP9N3PQBD4"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    </script>
+    <script>
+    // Oculta el ítem de cerrar sesión si no estás en asistencia.html
+        if (!window.location.pathname.includes("Asistencia.html")) {
+        const cerrarSesion = document.getElementById("cerrarSesionItem");
+        if (cerrarSesion) cerrarSesion.style.display = "none";
+    }
+    </script>
+
+     
+</body>
+</html>
