@@ -1,27 +1,31 @@
-
 import ExcelJS from "exceljs";
+import admin from "firebase-admin";
+import { readFileSync } from "fs";
+
+// Inicializar Firebase Admin si no está iniciado
+if (!admin.apps.length) {
+  const serviceAccount = JSON.parse(
+    readFileSync("firebase/urhc-clave-admin.json", "utf8")
+  );
+
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
+}
+
+const db = admin.firestore();
 
 export default async function handler(req, res) {
   try {
-    // Simular historial de prueba (reemplazá con tu Firestore si querés)
-    const historial = [
-      {
-        fecha: "28/05/2025",
-        asistencia: {
-          "Maria": "Presente",
-          "Lucia": "Ausente",
-          "Sofía": "Tarde",
-        }
-      },
-      {
-        fecha: "29/05/2025",
-        asistencia: {
-          "Maria": "Presente",
-          "Lucia": "Presente",
-          "Sofía": "Presente",
-        }
-      }
-    ];
+    // Obtener historial real desde Firestore
+const snapshot = await db.collection("asistencias").get();
+
+const historial = snapshot.docs.map(doc => ({
+  fecha: doc.id,
+  asistencia: doc.data()
+}));
+
+
 
     const fechas = historial.map(d => d.fecha);
     const nombres = [...new Set(historial.flatMap(d => Object.keys(d.asistencia)))];

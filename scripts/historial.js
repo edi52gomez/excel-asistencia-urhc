@@ -1,8 +1,7 @@
-// === INICIALIZAR FIREBASE ===
+// === INICIALIZAR FIREBASE === 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDpU-CB6AzN_aOpsfMxR5WACY4U10zCgzE",
   authDomain: "urhc-c8f40.firebaseapp.com",
@@ -134,8 +133,7 @@ function filtrarPorFecha() {
 
   inputFecha.addEventListener("change", function () {
     const fechaISO = this.value;
-    const partes = fechaISO.split("-");
-    const fechaObj = new Date(partes[0], partes[1] - 1, partes[2]);
+    const fechaObj = new Date(fechaISO);
     const fechaCompleta = fechaObj.toLocaleDateString("es-AR", {
       weekday: "long",
       day: "numeric",
@@ -143,7 +141,12 @@ function filtrarPorFecha() {
     });
 
     contenedorDia.innerHTML = "";
-    const diaEncontrado = historial.find(dia => dia.fechaISO === fechaISO);
+
+    const diaEncontrado = historial.find(dia => {
+      const partes = dia.fecha.split("/");
+      const fechaFormateada = `${partes[2]}-${partes[1]}-${partes[0]}`;
+      return fechaFormateada === fechaISO;
+    });
 
     if (!diaEncontrado) {
       contenedorDia.innerHTML = `<p style="text-align:center;">No hay registros para esta fecha.</p>`;
@@ -173,92 +176,6 @@ function filtrarPorFecha() {
     }
   });
 }
-
-import * as XLSX from "https://cdn.sheetjs.com/xlsx-0.18.5/package/xlsx.mjs";
-
-document.getElementById("exportarExcel").addEventListener("click", () => {
-  if (historial.length === 0) {
-    alert("No hay registros para exportar");
-    return;
-  }
-
-  const fechas = [...new Set(historial.map(dia => dia.fecha))].sort();
-  const nombresSet = new Set();
-  historial.forEach(dia => {
-    for (let nombre in dia.asistencia) {
-      nombresSet.add(nombre);
-    }
-  });
-  const nombres = Array.from(nombresSet).sort();
-
-  const titulo = ["Asistencia URHC 2025"];
-  const cabecera = ["Nombre", ...fechas];
-  const filas = nombres.map(nombre => {
-    const fila = [nombre];
-    fechas.forEach(fecha => {
-      const dia = historial.find(d => d.fecha === fecha);
-      const estado = dia?.asistencia?.[nombre] || "";
-      fila.push(estado);
-    });
-    return fila;
-  });
-
-  const dataFinal = [titulo, [], cabecera, ...filas];
-  const ws = XLSX.utils.aoa_to_sheet(dataFinal);
-  const rango = XLSX.utils.decode_range(ws['!ref']);
-
-  for (let R = rango.s.r; R <= rango.e.r; ++R) {
-    for (let C = 0; C <= rango.e.c; ++C) {
-      const celda = ws[XLSX.utils.encode_cell({ r: R, c: C })];
-      if (!celda) continue;
-
-      // Agregar estilos base
-      celda.s = celda.s || {};
-      celda.s.alignment = { horizontal: "center" };
-      celda.s.border = {
-        top:    { style: "thin", color: { rgb: "000000" } },
-        right:  { style: "thin", color: { rgb: "000000" } },
-        bottom: { style: "thin", color: { rgb: "000000" } },
-        left:   { style: "thin", color: { rgb: "000000" } }
-      };
-
-      // Estilos especiales
-      const valor = celda.v;
-      if (R === 2) { // Fila de encabezado
-        celda.s.fill = { fgColor: { rgb: "DCE6F1" } };
-        celda.s.font = { bold: true };
-      } else if (R > 2) {
-        if (valor === "Presente") celda.s.fill = { fgColor: { rgb: "C6EFCE" } };
-        else if (valor === "Ausente") celda.s.fill = { fgColor: { rgb: "FFC7CE" } };
-        else if (valor === "Tarde") celda.s.fill = { fgColor: { rgb: "FFEB9C" } };
-      }
-    }
-  }
-
-  // Estilizar título
-  const celdaTitulo = ws["A1"];
-  celdaTitulo.s = {
-    font: { sz: 16, bold: true },
-    alignment: { horizontal: "center" },
-    border: {
-      top:    { style: "thin", color: { rgb: "000000" } },
-      right:  { style: "thin", color: { rgb: "000000" } },
-      bottom: { style: "thin", color: { rgb: "000000" } },
-      left:   { style: "thin", color: { rgb: "000000" } }
-    }
-  };
-
-  // Unir celdas para el título
-  ws['!merges'] = [
-    { s: { r: 0, c: 0 }, e: { r: 0, c: cabecera.length - 1 } }
-  ];
-
-  // Crear libro y exportar
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, "Asistencia");
-  XLSX.writeFile(wb, "Asistencia_URHC_Completa.xlsx");
-});
-
 
 window.addEventListener("DOMContentLoaded", () => {
   const hoy = new Date();
