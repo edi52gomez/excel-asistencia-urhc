@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://urhc-control.vercel.app",
+      "permanent": true
+    }
+  ]
+}
