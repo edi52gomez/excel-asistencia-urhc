@@ -1,9 +1,8 @@
 {
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "https://urhc-control.vercel.app",
-      "permanent": true
+  "version": 2,
+  "functions": {
+    "api/generar-excel.js": {
+      "runtime": "nodejs18.x"
     }
-  ]
+  }
 }
