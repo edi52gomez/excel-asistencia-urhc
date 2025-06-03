@@ -178,7 +178,7 @@ function filtrarPorFecha() {
 }
 document.getElementById("exportarExcel").addEventListener("click", async () => {
   try {
-    const response = await fetch("https://excel-asistencia-urhc.vercel.app/api/generar-excel");
+    const response = await fetch("https://us-central1-urhc-c8f40.cloudfunctions.net/generarExcel");
 
     if (!response.ok) {
       throw new Error("Error al generar el Excel.");
@@ -197,6 +197,7 @@ document.getElementById("exportarExcel").addEventListener("click", async () => {
     console.error(error);
   }
 });
+
 
 
 window.addEventListener("DOMContentLoaded", () => {
